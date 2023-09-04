@@ -4,7 +4,7 @@
         "nombre": "Lenovo IdeaPad 3i 6ta Gen (15.6', Intel)", 
         "precio": 499.00,
         "stock": 4, 
-        "img": "img//nb_lenovo.webp",
+        "img": "img/nb_lenovo.webp",
         "categoria": "notebook"
     },
     
@@ -13,7 +13,7 @@
         "nombre": "Dell Inspiron 3511 5ta Gen (15.6', Intel",
         "precio": 556.00, 
         "stock": 6,
-        "img": "img//nb_dell.webp",
+        "img": "img/nb_dell.webp",
         "categoria":"notebook"
     },
     
@@ -22,7 +22,7 @@
         "nombre": "Asus Vivobook Pro 16 (16', Intel)",    
         "precio": 1299.00,
         "stock": 5,
-        "img": "img//nb_asus.webp",
+        "img": "img/nb_asus.webp",
         "categoria": "notebook"
     },
     
@@ -31,7 +31,7 @@
         "nombre": "AMD Ryzen 5 5600",    
         "precio": 145.00,
         "stock": 15,
-        "img": "img//ryzen5_2da.webp",
+        "img": "img/ryzen5_2da.webp",
         "categoria": "procesador-amd"
     },
     
@@ -40,7 +40,7 @@
         "nombre": "Intel Core I5 12400f",    
         "precio": 149.00,
         "stock": 15,
-        "img": "img//i5_12th.webp",
+        "img": "img/i5_12th.webp",
         "categoria": "procesador-intel"
     },
     
@@ -391,7 +391,7 @@
         "nombre": "Logitech G203 - Black",  
         "precio": 27.00,
         "stock":  19,
-        "img":  "img/gpro_wireless.webp",
+        "img":  "img/g203.webp",
         "categoria": "mouse"
     },
     
