@@ -117,9 +117,9 @@ function crearProductos(productosElegidos) {
         const contenidoCard = document.createElement("div")
         contenidoCard.classList.add = "card-body"
         contenidoCard.innerHTML = `
-            <h5>${producto.nombre}</h5>
-            <p>$${producto.precio * precioDolar}</p>
-            <button class="agregar-carrito" id="${producto.id}">Agregar al carrito</button>
+            <h5 class="text-center">${producto.nombre}</h5>
+            <p class="text-center">$${producto.precio * precioDolar}</p>
+            <button class="agregar-carrito text-center" id="${producto.id}">Agregar al carrito</button>
         `
 
         // Los agrego
@@ -148,15 +148,35 @@ function agregarAlCarrito(e) {
     if (carrito.some(producto => producto.id == idBoton)) {
         const i = carrito.findIndex(producto => producto.id == idBoton)
         carrito[i].cantidad++
+        Swal.fire({
+            position: 'bottom-end',
+            icon: 'success',
+            title: 'Agregaste otra unidad del producto',
+            showConfirmButton: false,
+            timer: 1000,
+            toast: true
+        })
     } else {
         productoAgregado.cantidad = 1
         carrito.push(productoAgregado)
+        Swal.fire({
+            position: 'bottom-end',
+            icon: 'success',
+            title: 'Producto agregado al carrito',
+            showConfirmButton: false,
+            timer: 1000,
+            toast: true,
+        })
     }
 
     // Eliminar 1 unidad si la cantidad del producto es mayor al stock
     if (productoAgregado.cantidad > productoAgregado.stock) {
-        alert("No hay suficiente stock para esa cantidad")
-        carrito[i].cantidad--
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No hay suficiente stock del producto',
+        })
+        carrito[i].cantidad = productoAgregado.stock
     }
 
     // Lo guardo en local Storage y actualizo la vista
@@ -177,6 +197,7 @@ function actualizarVisualizacionCarrito() {
 
         // Declaro un boton para eliminar producto del carrito
         const eliminarItem = document.createElement("button")
+        eliminarItem.classList.add("eliminar-carrito")
         eliminarItem.textContent = "Eliminar del carrito"
         eliminarItem.addEventListener("click", () => {
             // Obtengo el indice del carrito
@@ -185,9 +206,25 @@ function actualizarVisualizacionCarrito() {
                 // Si hay uno solo lo elimino
                 if (carrito[i].cantidad == 1) {
                     carrito.splice(i, 1)
+                    Swal.fire({
+                        position: 'bottom-end',
+                        icon: 'info',
+                        title: 'Producto eliminado del carrito',
+                        showConfirmButton: false,
+                        timer: 1000,
+                        toast: true,
+                    })
                 // Si hay mas de uno, resto uno a la cantidad
                 } else {
                     carrito[i].cantidad--
+                    Swal.fire({
+                        position: 'bottom-end',
+                        icon: 'info',
+                        title: 'Restaste una unidad del producto',
+                        showConfirmButton: false,
+                        timer: 1000,
+                        toast: true,
+                    })
                 }
                 localStorage.setItem("carrito", JSON.stringify(carrito))
             }
@@ -205,7 +242,7 @@ function actualizarVisualizacionCarrito() {
 
     // Mostrar el precio total en el aside
     const precioTotalTexto = document.getElementById("precio-total")
-    precioTotalTexto.textContent = `Precio total: $${precioTotal.toFixed(2)}`
+    precioTotalTexto.textContent = `Precio total: $${precioTotal}`
 }
 
 function comprandoCarrito() {
@@ -286,7 +323,11 @@ fetch("productos.json")
     // Evento para ir a seccion de pago
     comprarCarrito.addEventListener("click", () => {
         if (carrito.length === 0) {
-            alert("El carrito esta vacio. Agrega productos e intente de nuevo")
+            Swal.fire({
+                icon: 'error',
+                title: 'El carrito esta vacio!',
+                text: 'Agrega productos y gastatela toda',
+            })
         } else {
             comprandoCarrito()
         }

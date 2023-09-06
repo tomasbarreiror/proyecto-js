@@ -1,0 +1,98 @@
+/* Colores */
+/* Header */
+header {
+  background-color: #4C3B4D;
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#carrito {
+  background-image: url(../img/carrito.png);
+  padding: 30px;
+  background-size: cover;
+  background-position: center;
+  border: none;
+  background-color: #4C3B4D;
+}
+
+/* Footer */
+footer {
+  padding: 20px 0;
+  background-color: #A53860;
+  color: white;
+  margin-top: 2px;
+}
+
+footer div p {
+  text-align: center;
+}
+
+body {
+  background-color: #FFEEDB;
+}
+
+ul {
+  list-style-type: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.categorias {
+  background-color: #4C3B4D;
+  border-radius: 1rem;
+  color: white;
+}
+
+.boton-categorias {
+  border: none;
+  margin-top: 1rem;
+  padding: 1rem;
+  width: 100%;
+  background-color: #ada8b6;
+  border-radius: 1rem;
+}
+
+.oculto {
+  display: none;
+}
+
+#productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+.contenedor-producto {
+  width: 300px;
+  height: 500px;
+}
+
+.contenedor-producto .card {
+  width: 100%;
+  height: 100%;
+}
+
+.mostrar-aside {
+  right: 0;
+  transform: translateX(0%);
+  z-index: 100;
+  background-color: white;
+  width: 300px;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  padding: 20px;
+  box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/*# sourceMappingURL=styles.css.map */
